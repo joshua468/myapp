@@ -1,18 +1,16 @@
 package main
 
 import (
-	"log"
 	"net/http"
 
-	api "github.com/joshua468/myapp/api"
+	"github.com/joshua468/myapp/api"
 )
 
-func main() {
-	http.HandleFunc("/api/hello", api.Handler)
+func Handler(w http.ResponseWriter, r *http.Request) {
+	api.Handler(w, r)
+}
 
-	port := ":8081" // Define the port
-	log.Println("Server is running on port", port)
-	if err := http.ListenAndServe(port, nil); err != nil {
-		log.Fatalf("could not start server: %s\n", err)
-	}
+func main() {
+	http.HandleFunc("/", Handler)
+	http.ListenAndServe(":8080", nil)
 }
