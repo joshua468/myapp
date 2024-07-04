@@ -17,7 +17,7 @@ type Response struct {
 func Handler(w http.ResponseWriter, r *http.Request) {
 	visitorName := r.URL.Query().Get("visitor_name")
 	if visitorName == "" {
-		visitorName = "Visitor"
+		visitorName = "Mark"
 	}
 
 	clientIP := getClientIP(r)
