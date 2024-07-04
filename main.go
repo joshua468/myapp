@@ -4,7 +4,7 @@ import (
 	"log"
 	"net/http"
 
-	handler "github.com/joshua468/myapp/api"
+   "github.com/joshua468/myapp/api"
 )
 
 func main() {
