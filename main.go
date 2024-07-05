@@ -1,14 +1,10 @@
 package main
 
 import (
-	"log"
-	"net/http"
-
 	"github.com/joshua468/myapp/api/handler"
+	"github.com/vercel/go-bridge/go/bridge"
 )
 
 func main() {
-	http.HandleFunc("/api/hello", handler.Handler)
-	log.Println("Server starting on port 8080...")
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	bridge.Start(handler.Handler)
 }
