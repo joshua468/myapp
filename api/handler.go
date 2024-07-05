@@ -62,7 +62,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 func getClientIP(r *http.Request) string {
 	headersToCheck := []string{"X-Forwarded-For", "X-Real-IP"}
 
-	for _, header := headersToCheck {
+	for _, header := range headersToCheck {
 		if ip := r.Header.Get(header); ip != "" {
 			if header == "X-Forwarded-For" {
 				ips := strings.Split(ip, ",")
@@ -79,7 +79,7 @@ func getClientIP(r *http.Request) string {
 	}
 
 	if ip == "::1" || ip == "127.0.0.1" {
-		ip = "8.8.8.8" 
+		ip = "8.8.8.8" // Example public IP (Google DNS)
 	}
 
 	return ip
